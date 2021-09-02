@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+    * { 
+        margin:0;
+        padding:0;
+    }
+    #menu {
+        width:200px;
+        background-color: cornflowerblue;
+        color:gold;
+    }
+</style>
+<script>
+    // 아까처럼 메뉴판을 만들어주시되
+    // 이번에는 hover가 아닌 onclick 이벤트를 걸어서
+    // 버튼을 클릭하면 메뉴판이 보이고 다시 클릭하면
+    // 메뉴판이 사라지도록 하겠습니다.
+    // 단, 메뉴판이 안 보일때는 버튼 글씨가 "메뉴보기" 이고
+    // 메뉴판이 보일때는 버튼 글씨가 "메뉴닫기" 가 되도록
+    // 처리해주세요.
+    $(() => {
+        $("#btn").click(function(){
+            // 메뉴 숨겼다 노출
+            $("#list").toggle("fast");
+            
+            // 아무것도 안 집어넣으면
+            // $("요소").text() 는 innerHTML을 리턴한다.
+            // .text("바꿀문자") 를 넣으면 교체해줍니다.
+            console.log($(this).text());
+
+            // 버튼 문구 변경
+            // $(this)[0].innerText === "메뉴보기" 대체
+            if($(this).text() === "메뉴보기"){
+                //$(this)[0].innerText = "메뉴닫기";
+                // innerText는 아래와 같이 대체할 수 있다.
+                $(this).text("메뉴닫기");
+            } else if($(this)[0].innerText === "메뉴닫기"){
+                //$(this)[0].innerText = "메뉴보기";
+                $(this)[0].innerText = "메뉴보기";
+            }
+        });
+
+    });
+</script>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+    <div id="menu">
+        <button id="btn">메뉴닫기</button>
+        <ul id="list">
+            <li>닭갈비 : 1인분 13000원</li>
+            <li>삼겹살 : 1인분 15000원</li>
+            <li>항정살 : 1인분 16000원</li>
+            <li>닭목살 : 1인분 20000원</li>
+            <li>소등심 : 1인분 40000원</li>
+        </ul>
+    </div>
+</body>
+</html>
