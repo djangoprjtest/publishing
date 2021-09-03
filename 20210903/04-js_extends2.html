@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<style>
+
+</style>
+<script>
+    // 문제
+    // Person과 그것을 상속한 요소를 2개 만들어서
+    // 활용해주세요.
+
+    // Person은 이름과 나이를 가집니다.
+    // 나머지 요소들은 각자 자기자신의 멤버변수 하나와
+    // 자기 자신만 사용할 수 있는 메서드(행동)을
+    // 하나씩 가집니다.
+
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+    }
+
+    Person.prototype.setName = function(name){
+        this.name = name;
+    }
+
+    Person.prototype.getName = function(){
+        return this.name;
+    }
+    Person.prototype.setAge = function(age){
+        this.age = age;
+    }
+
+    Person.prototype.getAge = function(){
+        return this.age;
+    }
+
+    var person = new Person("상속베이스", 30);
+
+    function Developer(language){
+        this.language = language;
+    }
+
+    Developer.prototype = person;
+
+    Developer.prototype.setLanguage = function(language){
+        this.language = language;
+    }
+
+    Developer.prototype.getLanguage = function(){
+        return this.language;
+    }
+
+    Developer.prototype.dev = function(){
+        console.log("개발자가 " + this.language + "(으)로 개발합니다.");
+    }
+
+    function Chef(menu){
+        this.menu = menu;
+    }
+
+    Chef.prototype = person;
+
+    Chef.prototype.setMenu = function(menu){
+        this.menu = menu;
+    }
+
+    Chef.prototype.getMenu = function(){
+        return this.menu;
+    }
+
+    Chef.prototype.cooking = function(){
+        console.log("요리사가 " + this.menu + "(을)를 조리합니다.");
+    }
+
+    var developer = new Developer("자바스크립트");
+    console.log(developer.getLanguage());
+    developer.dev();
+    
+
+    var chef = new Chef("학센");
+    console.log(chef.getMenu());
+    chef.cooking();
+    
+</script>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+</body>
+</html>

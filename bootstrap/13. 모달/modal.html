@@ -43,9 +43,16 @@ body {
 <div class="container">
   <h2>Modal 예시</h2>
   <!-- Button to Open the Modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  <button type="button" class="btn btn-primary" 
+      data-toggle="modal" data-target="#myModal">
     모달 열기
-  </button>
+  </button><br>
+
+  <!--모달 여는 버튼 2번째를 만들어주세요.-->
+  <button type="button" class="btn btn-danger" 
+      data-toggle="modal" data-target="#myModal">
+    모달2번
+  </button><br/>
 
   <hr>
 	<a href="#myModal" data-toggle="modal">
@@ -57,23 +64,28 @@ body {
     <div class="modal-dialog">
       <div class="modal-content">
 
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">모달 제목</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
+        <!--모달쪽에 폼을 씌워서
+        회원가입창으로 바꿔주세요.-->
+        <form action="#" method="get">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">회원가입창</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
 
-        <!-- Modal body -->
-        <div class="modal-body">
-          <p>여기는 내용이 들어가는 곳</p>
-        </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <input type="text" name="name" placeholder="이름" class="form-control"/><br/>
+            <input type="password" name="pw" placeholder="비번" class="form-control"/><br/>
+            <input type="text" name="id" placeholder="아이디" class="form-control"/><br/>
+          </div>
 
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">닫기</button>
-          <button type="button" class="btn btn-primary">변경 사항 저장</button>
-        </div>
-
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">닫기</button>
+            <input type="submit" value="가입하기" class="btn btn-primary"/>
+          </div>
+      </form>
       </div>
     </div>
   </div>
